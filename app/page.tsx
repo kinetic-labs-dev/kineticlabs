@@ -14,7 +14,7 @@ export default function Home() {
         background: "#0a0a0a",
         minHeight: "100vh",
         color: "white",
-        fontFamily: "Arial",
+      
       }}
     >
       {/* NUEVO HERO PROFESIONAL */}

@@ -6,7 +6,6 @@ export default function Footer() {
         borderTop: "1px solid #222",
         padding: "60px 20px 30px 20px",
         color: "#888",
-        fontFamily: "Arial",
       }}
     >
       <div

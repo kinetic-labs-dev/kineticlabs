@@ -6,7 +6,6 @@ export default function Hero() {
       style={{
         background: "#0a0a0a",
         color: "white",
-        fontFamily: "Arial",
         overflow: "hidden",
         borderBottom: "1px solid #222",
       }}
