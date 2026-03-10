@@ -1,120 +1,47 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 
-export default function MachineCard({ laptop }: any) {
-
-  const discount = Math.round(
-    ((laptop.originalPrice - laptop.price) / laptop.originalPrice) * 100
-  )
+export default function MachineCard({ laptop }: { laptop: any }) {
+  // TRUCO CTO: Extraemos la foto de forma segura para las tarjetas
+  const imageSrc = laptop.images ? laptop.images[0] : laptop.image;
 
   return (
-
-    <Link href={`/laptop/${laptop.id}`}>
-
-      <div
-        style={{
-          background: "#111",
-          borderRadius: "16px",
-          padding: "24px",
-          cursor: "pointer",
-          transition: "0.25s",
+    <Link 
+      href={`/laptop/${laptop.id}`} 
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <div 
+        style={{ 
+          background: "#111", 
+          borderRadius: "16px", 
+          padding: "20px", 
           border: "1px solid #222",
+          transition: "transform 0.2s, borderColor 0.2s",
+          cursor: "pointer"
         }}
       >
-
-        {/* IMAGEN */}
-
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "180px",
-            marginBottom: "20px",
-          }}
-        >
-
-          <Image
-            src={`/products/${laptop.id}/hero.webp`}
-            alt={laptop.name}
-            fill
-            style={{
-              objectFit: "contain",
-            }}
-          />
-
-        </div>
-
-        {/* NOMBRE */}
-
-        <h2
-          style={{
-            fontSize: "20px",
-            marginBottom: "6px",
-            color: "white",
-          }}
-        >
+        <Image 
+          src={imageSrc} 
+          alt={laptop.name} 
+          width={300} 
+          height={200} 
+          style={{ objectFit: "contain", width: "100%", height: "auto" }} 
+        />
+        <h3 style={{ fontSize: "22px", marginTop: "15px", color: "white" }}>
           {laptop.name}
-        </h2>
-
-        {/* CATEGORIA */}
-
-        <p
-          style={{
-            color: "#aaa",
-            marginBottom: "14px",
-          }}
-        >
-          {laptop.category}
+        </h3>
+        <p style={{ color: "#888", fontSize: "14px", marginTop: "5px" }}>
+          {laptop.cpu || laptop.specs?.processor}
         </p>
-
-        {/* PRECIOS */}
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-
-          <div
-            style={{
-              fontSize: "22px",
-              fontWeight: "bold",
-              color: "#00ff9c",
-            }}
-          >
+        <div style={{ marginTop: "15px", display: "flex", alignItems: "center", gap: "10px" }}>
+          <span style={{ fontSize: "24px", fontWeight: "bold", color: "#25D366" }}>
             {laptop.price}€
-          </div>
-
-          <div
-            style={{
-              color: "#777",
-              textDecoration: "line-through",
-              fontSize: "16px",
-            }}
-          >
+          </span>
+          <span style={{ textDecoration: "line-through", color: "#666" }}>
             {laptop.originalPrice}€
-          </div>
-
-          <div
-            style={{
-              background: "#ff4d4f",
-              color: "white",
-              padding: "3px 6px",
-              borderRadius: "6px",
-              fontSize: "12px",
-              fontWeight: "bold",
-            }}
-          >
-            -{discount}%
-          </div>
-
+          </span>
         </div>
-
       </div>
-
     </Link>
-
-  )
+  );
 }
