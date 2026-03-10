@@ -1,37 +1,37 @@
-import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div
+    <section
       style={{
-        background: "#050505", // Fondo ultra oscuro
+        background: "#0a0a0a",
         color: "white",
-        fontFamily: "Arial", // Lo cambiaremos a Geist después
+        fontFamily: "Arial",
         overflow: "hidden",
+        borderBottom: "1px solid #222",
       }}
     >
       <div
         style={{
-          maxWidth: "1400px",
+          maxWidth: "1200px",
           margin: "0 auto",
-          padding: "100px 20px",
+          padding: "80px 20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "40px",
-          flexWrap: "wrap", // Responsivo básico
+          flexWrap: "wrap",
         }}
       >
-        {/* LADO IZQUIERDO: Texto y Botón */}
-        <div style={{ flex: "1 1 500px", maxWidth: "600px" }}>
+        {/* LADO IZQUIERDO: TEXTO */}
+        <div style={{ flex: "1 1 400px", maxWidth: "600px" }}>
           <h1
             style={{
-              fontSize: "64px",
+              fontSize: "clamp(40px, 5vw, 64px)",
               fontWeight: "900",
-              lineHeight: "1.0",
-              marginBottom: "15px",
-              letterSpacing: "-2px",
+              lineHeight: "1.1",
+              marginBottom: "20px",
+              letterSpacing: "-1px",
             }}
           >
             PORTÁTILES <br />
@@ -43,7 +43,6 @@ export default function Hero() {
               fontSize: "20px",
               color: "#aaa",
               marginBottom: "40px",
-              maxWidth: "500px",
               lineHeight: "1.5",
             }}
           >
@@ -51,82 +50,57 @@ export default function Hero() {
             Inspección Kinetic de 40 puntos garantizada.
           </p>
 
-          <Link
-            href="#laptops" // Apunta a la sección de portátiles (que añadiremos luego)
+          <a
+            href="https://wa.me/34694296601"
+            target="_blank"
             style={{
               display: "inline-block",
-              background: "#25D366", // Verde WhatsApp/Tech
+              background: "#25D366",
               color: "white",
-              padding: "18px 40px",
-              borderRadius: "50px",
+              padding: "16px 32px",
+              borderRadius: "12px",
               fontWeight: "bold",
               fontSize: "18px",
               textDecoration: "none",
-              transition: "transform 0.2s",
-              boxShadow: "0 10px 30px rgba(37, 211, 102, 0.3)",
+              boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
             }}
           >
-            VER CATÁLOGO
-          </Link>
+            Contactar por WhatsApp
+          </a>
         </div>
 
-        {/* LADO DERECHO: El Portátil Flotando (Placeholders por ahora) */}
+        {/* LADO DERECHO: IMAGEN FLOTANDO */}
         <div
           style={{
-            flex: "1 1 500px",
-            height: "500px",
+            flex: "1 1 400px",
             position: "relative",
+            height: "400px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          {/* Un placeholder visual para que sepas dónde irá la imagen real */}
-          <div
-            style={{
-              width: "500px",
-              height: "350px",
-              background: "rgba(34, 34, 34, 0.5)",
-              border: "2px dashed #333",
-              borderRadius: "20px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#444",
-              fontWeight: "bold",
-              fontSize: "14px",
-            }}
-          >
-            [IMAGEN DEL PORTÁTIL FLOTANDO]
-          </div>
-          
-          {/* Efectos de luz sutiles */}
-          <div
-            style={{
-              position: "absolute",
-              width: "150px",
-              height: "150px",
-              background: "rgba(37, 211, 102, 0.1)",
-              borderRadius: "50%",
-              filter: "blur(50px)",
-              top: "10%",
-              right: "20%",
-            }}
+          <Image
+            src="/products/dell-xps-15/hero.webp"
+            alt="Kinetic Labs Elite Laptop"
+            fill
+            style={{ objectFit: "contain", zIndex: 10 }}
+            priority
           />
+          {/* Efecto de luz verde de fondo (Glow) */}
           <div
             style={{
               position: "absolute",
-              width: "250px",
-              height: "250px",
-              background: "rgba(37, 211, 102, 0.05)",
+              width: "300px",
+              height: "300px",
+              background: "rgba(37, 211, 102, 0.15)",
               borderRadius: "50%",
-              filter: "blur(80px)",
-              bottom: "10%",
-              left: "10%",
+              filter: "blur(60px)",
+              zIndex: 1,
             }}
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
