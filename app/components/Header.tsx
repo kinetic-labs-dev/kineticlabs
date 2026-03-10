@@ -1,3 +1,5 @@
+import Logo from "./Logo" // Asegúrate de importar el logo
+
 export default function Header() {
   return (
     <header
@@ -13,7 +15,7 @@ export default function Header() {
         style={{
           maxWidth: "1200px",
           margin: "auto",
-          padding: "16px 20px",
+          padding: "12px 16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -21,33 +23,22 @@ export default function Header() {
       >
 
         {/* LOGO */}
-
-        <div
-          style={{
-            fontSize: "20px",
-            fontWeight: "bold",
-          }}
-        >
-          Kinetic Labs
-        </div>
-
+        <Logo />
 
         {/* NAVEGACIÓN */}
-
         <div
           style={{
             display: "flex",
-            gap: "20px",
+            gap: "15px",
             alignItems: "center",
             fontSize: "14px",
           }}
         >
-
-          <a href="/" style={{ color: "#aaa" }}>
+          <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
             Inicio
           </a>
 
-          <a href="/" style={{ color: "#aaa" }}>
+          <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
             Portátiles
           </a>
 
@@ -56,17 +47,16 @@ export default function Header() {
             target="_blank"
             style={{
               background: "#25D366",
-              padding: "8px 14px",
+              padding: "8px 12px",
               borderRadius: "8px",
               color: "white",
               fontWeight: "bold",
+              textDecoration: "none",
             }}
           >
             WhatsApp
           </a>
-
         </div>
-
       </div>
     </header>
   )

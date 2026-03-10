@@ -15,7 +15,7 @@ export default function Hero() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "80px 20px",
+          padding: "60px 20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -24,14 +24,15 @@ export default function Hero() {
         }}
       >
         {/* LADO IZQUIERDO: TEXTO */}
-        <div style={{ flex: "1 1 400px", maxWidth: "600px" }}>
+        <div style={{ flex: "1 1 100%", maxWidth: "600px" }}>
           <h1
             style={{
-              fontSize: "clamp(40px, 5vw, 64px)",
+              fontSize: "clamp(36px, 10vw, 64px)", // Se adapta al móvil automáticamente
               fontWeight: "900",
               lineHeight: "1.1",
               marginBottom: "20px",
               letterSpacing: "-1px",
+              wordWrap: "break-word", // Evita que se salga de la pantalla
             }}
           >
             PORTÁTILES <br />
@@ -40,10 +41,11 @@ export default function Hero() {
           </h1>
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "clamp(16px, 4vw, 20px)",
               color: "#aaa",
-              marginBottom: "40px",
+              marginBottom: "30px",
               lineHeight: "1.5",
+              maxWidth: "100%",
             }}
           >
             Máximo rendimiento. Precio inteligente. <br />
@@ -60,9 +62,11 @@ export default function Hero() {
               padding: "16px 32px",
               borderRadius: "12px",
               fontWeight: "bold",
-              fontSize: "18px",
+              fontSize: "16px",
               textDecoration: "none",
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
+              width: "100%", // Botón ancho completo en móvil
+              textAlign: "center",
             }}
           >
             Contactar por WhatsApp
@@ -72,12 +76,13 @@ export default function Hero() {
         {/* LADO DERECHO: IMAGEN FLOTANDO */}
         <div
           style={{
-            flex: "1 1 400px",
+            flex: "1 1 100%",
             position: "relative",
-            height: "400px",
+            height: "300px", // Un poco más ajustado para móvil
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            marginTop: "20px",
           }}
         >
           <Image
@@ -91,11 +96,11 @@ export default function Hero() {
           <div
             style={{
               position: "absolute",
-              width: "300px",
-              height: "300px",
+              width: "250px",
+              height: "250px",
               background: "rgba(37, 211, 102, 0.15)",
               borderRadius: "50%",
-              filter: "blur(60px)",
+              filter: "blur(50px)",
               zIndex: 1,
             }}
           />
