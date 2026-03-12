@@ -1,4 +1,4 @@
-import Image from "next/image";
+  import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -6,34 +6,40 @@ export default function Hero() {
       style={{
         background: "#0a0a0a",
         color: "white",
+        width: "100%",
+        maxWidth: "100vw",
         overflow: "hidden",
         borderBottom: "1px solid #222",
+        boxSizing: "border-box"
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "60px 20px",
+          padding: "50px 20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "40px",
+          gap: "30px",
           flexWrap: "wrap",
+          boxSizing: "border-box",
+          width: "100%"
         }}
       >
         {/* LADO IZQUIERDO: TEXTO */}
-        <div style={{ flex: "1 1 100%", maxWidth: "600px" }}>
+        <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box" }}>
           <h1
             style={{
-              fontSize: "clamp(32px, 8vw, 64px)",
+              fontSize: "clamp(26px, 8vw, 64px)", // Reducido el tamaño mínimo
               fontWeight: "900",
               lineHeight: "1.1",
-              marginBottom: "20px",
+              marginBottom: "15px",
               letterSpacing: "-1px",
-              overflowWrap: "break-word", // Obliga a romper palabras gigantes
-              wordBreak: "break-word",    // Obliga a romper palabras gigantes
-              hyphens: "auto",
+              overflowWrap: "anywhere", // LA REGLA NUCLEAR: rompe la palabra donde sea necesario
+              wordBreak: "break-word",
+              width: "100%",
+              boxSizing: "border-box"
             }}
           >
             PORTÁTILES <br />
@@ -42,11 +48,13 @@ export default function Hero() {
           </h1>
           <p
             style={{
-              fontSize: "clamp(16px, 4vw, 20px)",
+              fontSize: "clamp(15px, 4vw, 20px)",
               color: "#aaa",
               marginBottom: "30px",
               lineHeight: "1.5",
               maxWidth: "100%",
+              wordBreak: "break-word",
+              boxSizing: "border-box"
             }}
           >
             Máximo rendimiento. Precio inteligente. <br />
@@ -60,7 +68,7 @@ export default function Hero() {
               display: "inline-block",
               background: "#25D366",
               color: "white",
-              padding: "16px 32px",
+              padding: "16px 15px", // Ajustado padding para móvil
               borderRadius: "12px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -68,6 +76,7 @@ export default function Hero() {
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
               width: "100%",
               textAlign: "center",
+              boxSizing: "border-box" // CLAVE para que no se salga
             }}
           >
             Contactar por WhatsApp
@@ -79,11 +88,14 @@ export default function Hero() {
           style={{
             flex: "1 1 100%",
             position: "relative",
-            height: "300px",
+            height: "280px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "20px",
+            marginTop: "10px",
+            width: "100%",
+            maxWidth: "100vw",
+            boxSizing: "border-box"
           }}
         >
           <Image
@@ -93,16 +105,17 @@ export default function Hero() {
             style={{ objectFit: "contain", zIndex: 10 }}
             priority
           />
-          {/* Efecto de luz verde de fondo (Glow) */}
+          {/* Efecto de luz verde */}
           <div
             style={{
               position: "absolute",
-              width: "250px",
-              height: "250px",
+              width: "200px",
+              height: "200px",
               background: "rgba(37, 211, 102, 0.15)",
               borderRadius: "50%",
               filter: "blur(50px)",
               zIndex: 1,
+              maxWidth: "100%"
             }}
           />
         </div>

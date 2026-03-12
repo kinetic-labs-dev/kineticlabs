@@ -1,4 +1,4 @@
-import Logo from "./Logo" // Asegúrate de importar el logo
+import Logo from "./Logo"
 
 export default function Header() {
   return (
@@ -9,19 +9,25 @@ export default function Header() {
         position: "sticky",
         top: 0,
         zIndex: 1000,
+        width: "100%", // Obliga a ocupar solo el ancho disponible
+        maxWidth: "100vw",
+        overflow: "hidden", // Corta lo que intente asomar
+        boxSizing: "border-box"
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "auto",
-          padding: "12px 16px",
+          padding: "12px 15px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: "wrap", // CLAVE: Permite que los elementos bajen de línea si no caben
+          gap: "10px",
+          boxSizing: "border-box"
         }}
       >
-
         {/* LOGO */}
         <Logo />
 
@@ -29,9 +35,10 @@ export default function Header() {
         <div
           style={{
             display: "flex",
-            gap: "15px",
+            gap: "12px",
             alignItems: "center",
             fontSize: "14px",
+            flexWrap: "wrap",
           }}
         >
           <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
@@ -52,6 +59,7 @@ export default function Header() {
               color: "white",
               fontWeight: "bold",
               textDecoration: "none",
+              whiteSpace: "nowrap" // Evita que la palabra WhatsApp se rompa
             }}
           >
             WhatsApp
