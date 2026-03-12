@@ -9,9 +9,9 @@ export default function Header() {
         position: "sticky",
         top: 0,
         zIndex: 1000,
-        width: "100%", // Obliga a ocupar solo el ancho disponible
+        width: "100%",
         maxWidth: "100vw",
-        overflow: "hidden", // Corta lo que intente asomar
+        overflow: "hidden",
         boxSizing: "border-box"
       }}
     >
@@ -22,8 +22,7 @@ export default function Header() {
           padding: "12px 15px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap", // CLAVE: Permite que los elementos bajen de línea si no caben
+          justifyContent: "space-between", // Mantiene logo a un lado y nav al otro
           gap: "10px",
           boxSizing: "border-box"
         }}
@@ -31,14 +30,13 @@ export default function Header() {
         {/* LOGO */}
         <Logo />
 
-        {/* NAVEGACIÓN */}
+        {/* NAVEGACIÓN (Solo textos) */}
         <div
           style={{
             display: "flex",
-            gap: "12px",
+            gap: "15px",
             alignItems: "center",
             fontSize: "14px",
-            flexWrap: "wrap",
           }}
         >
           <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
@@ -47,22 +45,6 @@ export default function Header() {
 
           <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
             Portátiles
-          </a>
-
-          <a
-            href="https://wa.me/34694296601"
-            target="_blank"
-            style={{
-              background: "#25D366",
-              padding: "8px 12px",
-              borderRadius: "8px",
-              color: "white",
-              fontWeight: "bold",
-              textDecoration: "none",
-              whiteSpace: "nowrap" // Evita que la palabra WhatsApp se rompa
-            }}
-          >
-            WhatsApp
           </a>
         </div>
       </div>

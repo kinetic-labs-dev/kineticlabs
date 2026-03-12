@@ -1,4 +1,4 @@
-  import Image from "next/image";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -27,25 +27,39 @@ export default function Hero() {
           width: "100%"
         }}
       >
-        {/* LADO IZQUIERDO: TEXTO */}
+        {/* LADO IZQUIERDO: TEXTO (Nuevo diseño estructural) */}
         <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box" }}>
           <h1
             style={{
-              fontSize: "clamp(26px, 8vw, 64px)", // Reducido el tamaño mínimo
               fontWeight: "900",
               lineHeight: "1.1",
               marginBottom: "15px",
               letterSpacing: "-1px",
-              overflowWrap: "anywhere", // LA REGLA NUCLEAR: rompe la palabra donde sea necesario
-              wordBreak: "break-word",
               width: "100%",
               boxSizing: "border-box"
             }}
           >
-            PORTÁTILES <br />
-            REACONDICIONADOS <br />
-            DE <span style={{ color: "#25D366" }}>ÉLITE</span>.
+            {/* Texto Principal Grande */}
+            <span style={{ fontSize: "clamp(32px, 10vw, 64px)", display: "block" }}>
+              PORTÁTILES DE <span style={{ color: "#25D366" }}>ÉLITE</span>.
+            </span>
+            
+            {/* Texto REACONDICIONADOS (al 50% de tamaño y gris para contraste premium) */}
+            <span 
+              style={{ 
+                fontSize: "clamp(16px, 5vw, 32px)", // 50% de 64px máx
+                fontWeight: "500",
+                color: "#888", 
+                display: "block", 
+                marginTop: "10px", 
+                letterSpacing: "1px", 
+                textTransform: "uppercase" // Toque profesional
+              }}
+            >
+              Reacondicionados
+            </span>
           </h1>
+
           <p
             style={{
               fontSize: "clamp(15px, 4vw, 20px)",
@@ -53,7 +67,6 @@ export default function Hero() {
               marginBottom: "30px",
               lineHeight: "1.5",
               maxWidth: "100%",
-              wordBreak: "break-word",
               boxSizing: "border-box"
             }}
           >
@@ -68,7 +81,7 @@ export default function Hero() {
               display: "inline-block",
               background: "#25D366",
               color: "white",
-              padding: "16px 15px", // Ajustado padding para móvil
+              padding: "16px 20px",
               borderRadius: "12px",
               fontWeight: "bold",
               fontSize: "16px",
@@ -76,7 +89,7 @@ export default function Hero() {
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
               width: "100%",
               textAlign: "center",
-              boxSizing: "border-box" // CLAVE para que no se salga
+              boxSizing: "border-box"
             }}
           >
             Contactar por WhatsApp
