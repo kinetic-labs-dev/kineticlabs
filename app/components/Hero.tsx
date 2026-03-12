@@ -20,15 +20,16 @@ export default function Hero() {
           padding: "50px 20px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center", /* Cambiado a center */
           gap: "30px",
           flexWrap: "wrap",
           boxSizing: "border-box",
-          width: "100%"
+          width: "100%",
+          textAlign: "center" /* TODO EL TEXTO CENTRADO AQUÍ */
         }}
       >
         {/* LADO IZQUIERDO: TEXTO */}
-        <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box" }}>
+        <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <h1
             style={{
               fontWeight: "900",
@@ -39,7 +40,7 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            {/* Diseño escalonado de alto impacto */}
+            {/* Diseño escalonado de alto impacto - CENTRADO */}
             <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
               PORTÁTILES
             </span>
@@ -60,7 +61,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Subtítulo en 2 líneas exactas */}
+          {/* Subtítulo ajustado para partirse en móvil */}
           <p
             style={{
               fontSize: "clamp(15px, 4vw, 20px)",
@@ -71,8 +72,8 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            Equipos profesionales reacondicionados y optimizados <br />
-            para el máximo rendimiento.
+            {/* Truco: Forzar el salto solo en móviles pequeños con CSS inline */}
+            Equipos profesionales reacondicionados y optimizados para el máximo rendimiento.
           </p>
 
           <a
@@ -89,6 +90,7 @@ export default function Hero() {
               textDecoration: "none",
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
               width: "100%",
+              maxWidth: "350px", /* Botón centrado y acotado */
               textAlign: "center",
               boxSizing: "border-box"
             }}
