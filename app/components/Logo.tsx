@@ -1,32 +1,36 @@
+import Image from "next/image";
+
 export default function Logo() {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "10px",
-        fontWeight: "bold",
-        fontSize: "20px",
-        color: "white",
+    <a 
+      href="/" 
+      style={{ 
+        display: "flex", 
+        alignItems: "center", 
+        gap: "10px", 
+        textDecoration: "none" 
       }}
     >
-      {/* ICONO */}
-
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 100 100"
-        fill="none"
+      {/* Tu nuevo logo en PNG */}
+      <Image
+        src="/logo.png"
+        alt="Kinetic Labs Logo"
+        width={35}   /* Tamaño ajustado para el Header */
+        height={35}
+        style={{ objectFit: "contain" }}
+        priority
+      />
+      {/* El texto de la marca */}
+      <span 
+        style={{ 
+          color: "white", 
+          fontSize: "20px", 
+          fontWeight: "bold", 
+          letterSpacing: "-0.5px" 
+        }}
       >
-        <polygon
-          points="50,5 95,27 95,73 50,95 5,73 5,27"
-          fill="#25D366"
-        />
-      </svg>
-
-      {/* TEXTO */}
-
-      <span>Kinetic Labs</span>
-    </div>
-  )
+        Kinetic Labs
+      </span>
+    </a>
+  );
 }
