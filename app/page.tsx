@@ -17,13 +17,9 @@ export default function Home() {
         color: "white",
       }}
     >
-      {/* HERO PREMIUM */}
       <Hero />
-
-      {/* ESTÁNDAR KINETIC */}
       <KineticStandard /> 
 
-      {/* MEJOR CALIDAD PRECIO */}
       <section
         style={{
           padding: "60px 20px 20px 20px",
@@ -36,17 +32,17 @@ export default function Home() {
             fontSize: "28px",
             marginBottom: "30px",
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            textTransform: "uppercase" // MAYÚSCULAS
           }}
         >
-          🔥 Mejor calidad-precio
+          🔥 MEJOR CALIDAD PRECIO
         </h2>
         <div style={{ maxWidth: "350px", margin: "auto" }}>
           <MachineCard laptop={bestValue} />
         </div>
       </section>
 
-      {/* PORTÁTILES DISPONIBLES */}
       <section
         style={{
           padding: "60px 20px 100px 20px",
@@ -59,10 +55,11 @@ export default function Home() {
             fontSize: "28px",
             marginBottom: "40px",
             textAlign: "center",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            textTransform: "uppercase" // MAYÚSCULAS
           }}
         >
-          Equipos en stock
+          EQUIPOS EN STOCK
         </h2>
         <div
           style={{
@@ -77,7 +74,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIÓN DE CONFIANZA */}
       <TrustBadges />
     </main>
   )

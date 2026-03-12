@@ -27,7 +27,7 @@ export default function Hero() {
           width: "100%"
         }}
       >
-        {/* LADO IZQUIERDO: TEXTO (Nuevo diseño estructural) */}
+        {/* LADO IZQUIERDO: TEXTO */}
         <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box" }}>
           <h1
             style={{
@@ -39,27 +39,28 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            {/* Texto Principal Grande */}
-            <span style={{ fontSize: "clamp(32px, 10vw, 64px)", display: "block" }}>
-              PORTÁTILES DE <span style={{ color: "#25D366" }}>ÉLITE</span>.
+            {/* Diseño escalonado de alto impacto */}
+            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
+              PORTÁTILES
             </span>
-            
-            {/* Texto REACONDICIONADOS (al 50% de tamaño y gris para contraste premium) */}
+            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
+              DE <span style={{ color: "#25D366" }}>ÉLITE</span>
+            </span>
             <span 
               style={{ 
-                fontSize: "clamp(16px, 5vw, 32px)", // 50% de 64px máx
-                fontWeight: "500",
-                color: "#888", 
+                fontSize: "clamp(24px, 6vw, 42px)", 
+                fontWeight: "800",
+                color: "white", 
                 display: "block", 
-                marginTop: "10px", 
+                marginTop: "8px", 
                 letterSpacing: "1px", 
-                textTransform: "uppercase" // Toque profesional
               }}
             >
-              Reacondicionados
+              REACONDICIONADOS
             </span>
           </h1>
 
+          {/* Subtítulo en 2 líneas exactas */}
           <p
             style={{
               fontSize: "clamp(15px, 4vw, 20px)",
@@ -70,8 +71,8 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            Máximo rendimiento. Precio inteligente. <br />
-            Inspección Kinetic de 40 puntos garantizada.
+            Equipos profesionales reacondicionados y optimizados <br />
+            para el máximo rendimiento.
           </p>
 
           <a
@@ -118,7 +119,6 @@ export default function Hero() {
             style={{ objectFit: "contain", zIndex: 10 }}
             priority
           />
-          {/* Efecto de luz verde */}
           <div
             style={{
               position: "absolute",
