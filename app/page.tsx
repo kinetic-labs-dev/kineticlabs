@@ -2,6 +2,7 @@ import { laptops } from "./data/laptops"
 import MachineCard from "./components/MachineCard"
 import TrustBadges from "./components/TrustBadges"
 import Hero from "./components/Hero"
+import KineticStandard from "./components/KineticStandard"
 
 export default function Home() {
   const bestValue = laptops.reduce((prev, current) =>
@@ -11,14 +12,16 @@ export default function Home() {
   return (
     <main
       style={{
-        background: "#0a0a0a",
+        background: "#050505",
         minHeight: "100vh",
         color: "white",
-      
       }}
     >
-      {/* NUEVO HERO PROFESIONAL */}
+      {/* HERO PREMIUM */}
       <Hero />
+
+      {/* ESTÁNDAR KINETIC */}
+      <KineticStandard /> 
 
       {/* MEJOR CALIDAD PRECIO */}
       <section
@@ -33,6 +36,7 @@ export default function Home() {
             fontSize: "28px",
             marginBottom: "30px",
             textAlign: "center",
+            fontWeight: "bold"
           }}
         >
           🔥 Mejor calidad-precio
@@ -55,9 +59,10 @@ export default function Home() {
             fontSize: "28px",
             marginBottom: "40px",
             textAlign: "center",
+            fontWeight: "bold"
           }}
         >
-          Portátiles disponibles
+          Equipos en stock
         </h2>
         <div
           style={{
