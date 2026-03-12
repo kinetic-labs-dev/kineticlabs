@@ -26,12 +26,14 @@ export default function Hero() {
         <div style={{ flex: "1 1 100%", maxWidth: "600px" }}>
           <h1
             style={{
-              fontSize: "clamp(36px, 10vw, 64px)", // Se adapta al móvil automáticamente
+              fontSize: "clamp(32px, 8vw, 64px)",
               fontWeight: "900",
               lineHeight: "1.1",
               marginBottom: "20px",
               letterSpacing: "-1px",
-              wordWrap: "break-word", // Evita que se salga de la pantalla
+              overflowWrap: "break-word", // Obliga a romper palabras gigantes
+              wordBreak: "break-word",    // Obliga a romper palabras gigantes
+              hyphens: "auto",
             }}
           >
             PORTÁTILES <br />
@@ -64,7 +66,7 @@ export default function Hero() {
               fontSize: "16px",
               textDecoration: "none",
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
-              width: "100%", // Botón ancho completo en móvil
+              width: "100%",
               textAlign: "center",
             }}
           >
@@ -77,7 +79,7 @@ export default function Hero() {
           style={{
             flex: "1 1 100%",
             position: "relative",
-            height: "300px", // Un poco más ajustado para móvil
+            height: "300px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
