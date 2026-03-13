@@ -35,7 +35,7 @@ export default function KineticStandard() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "20px"
+          gap: "10px" /* AQUÍ ESTÁ LA CLAVE: Reducido para juntar las cajas */
         }}>
           {steps.map((step, i) => (
             <div key={i} style={{
@@ -43,10 +43,10 @@ export default function KineticStandard() {
               border: "1px solid #222",
               borderRadius: "16px",
               padding: "30px",
-              display: "flex",               /* CLAVE PARA CENTRAR */
-              flexDirection: "column",       /* CLAVE PARA CENTRAR */
-              alignItems: "center",          /* CLAVE PARA CENTRAR */
-              textAlign: "center",           /* TEXTO CENTRADO */
+              display: "flex",               
+              flexDirection: "column",       
+              alignItems: "center",          
+              textAlign: "center",           
               transition: "transform 0.3s ease, borderColor 0.3s ease",
             }}>
               <div style={{ fontSize: "40px", marginBottom: "20px" }}>{step.icon}</div>
