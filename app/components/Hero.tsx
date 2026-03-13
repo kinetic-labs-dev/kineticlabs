@@ -39,7 +39,7 @@ export default function Hero() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "10px", /* Reducido para que todo quede más compacto */
+          gap: "10px", 
           flexWrap: "wrap",
           boxSizing: "border-box",
           width: "100%",
@@ -91,27 +91,31 @@ export default function Hero() {
             Equipos profesionales reacondicionados y optimizados para el máximo rendimiento.
           </p>
 
-          {/* NUEVO BLOQUE: Estilo Apple Product Card */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "10px" }}>
+          {/* BLOQUE APPLE CARD CON BOTONES EN 1 LÍNEA */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "10px", width: "100%" }}>
             <h2 style={{ fontSize: "clamp(26px, 6vw, 38px)", fontWeight: "bold", margin: "0 0 5px 0", color: "white", letterSpacing: "-0.5px" }}>
               MacBook Air 15" M3
             </h2>
-            <p style={{ fontSize: "clamp(15px, 4vw, 18px)", margin: "0 0 20px 0", color: "#888" }}>
+            <p style={{ fontSize: "clamp(14px, 3.5vw, 18px)", margin: "0 0 20px 0", color: "#888" }}>
               Máxima configuración. 24GB RAM. 2TB SSD.
             </p>
             
-            <div style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
+            {/* AQUÍ ESTÁ LA MAGIA: flexWrap "nowrap" para forzar 1 sola línea */}
+            <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "nowrap", width: "100%", maxWidth: "400px" }}>
               <a
                 href="#stock"
                 style={{
-                  padding: "10px 24px",
+                  padding: "10px 16px", /* Padding ajustado */
                   borderRadius: "50px",
                   border: "2px solid #25D366",
                   color: "#25D366",
                   textDecoration: "none",
                   fontWeight: "600",
-                  fontSize: "16px",
-                  transition: "all 0.3s ease"
+                  fontSize: "clamp(13px, 3.5vw, 16px)", /* Fuente dinámica */
+                  transition: "all 0.3s ease",
+                  whiteSpace: "nowrap", /* Prohíbe que el texto del botón se parta */
+                  flex: "1", /* Hace que ambos botones ocupen lo mismo */
+                  textAlign: "center"
                 }}
               >
                 Más información
@@ -120,15 +124,18 @@ export default function Hero() {
                 href="https://wa.me/34694296601"
                 target="_blank"
                 style={{
-                  padding: "10px 24px",
+                  padding: "10px 16px", /* Padding ajustado */
                   borderRadius: "50px",
                   background: "#25D366",
                   border: "2px solid #25D366",
-                  color: "#050505", // Texto en oscuro para contraste premium sobre el verde
+                  color: "#050505", 
                   textDecoration: "none",
                   fontWeight: "bold",
-                  fontSize: "16px",
-                  transition: "all 0.3s ease"
+                  fontSize: "clamp(13px, 3.5vw, 16px)", /* Fuente dinámica */
+                  transition: "all 0.3s ease",
+                  whiteSpace: "nowrap", /* Prohíbe que el texto del botón se parta */
+                  flex: "1", /* Hace que ambos botones ocupen lo mismo */
+                  textAlign: "center"
                 }}
               >
                 Comprar
@@ -145,7 +152,7 @@ export default function Hero() {
             height: "300px",
             display: "flex",
             alignItems: "center",
-            marginTop: "0px", /* Reducido para acercarlo a los botones */
+            marginTop: "0px",
             width: "100%",
             maxWidth: "100vw",
             boxSizing: "border-box"
@@ -206,11 +213,11 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* INDICADOR VISUAL: Subido hacia arriba pegándose a la imagen */}
+          {/* INDICADOR VISUAL */}
           {heroImages.length > 1 && (
              <div style={{
                position: "absolute",
-               bottom: "10px", /* SUBIDO (antes estaba hundido en -30px) */
+               bottom: "10px", 
                left: "0",
                right: "0",
                display: "flex",
