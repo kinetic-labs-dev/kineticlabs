@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Hero() {
-  // Asegúrate de que tienes mac1.png, mac2.png... hasta mac6.png en tu carpeta
   const heroImages = [
     "/products/macbook-air/mac1.png", 
     "/products/macbook-air/mac2.png",
@@ -23,7 +22,6 @@ export default function Hero() {
         boxSizing: "border-box"
       }}
     >
-      {/* TRUCO CTO: Ocultar scrollbar y crear la animación de pulsación verde */}
       <style dangerouslySetInnerHTML={{__html: `
         .swipe-gallery::-webkit-scrollbar { display: none; }
         .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
@@ -41,14 +39,14 @@ export default function Hero() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "30px",
+          gap: "10px", /* Reducido para que todo quede más compacto */
           flexWrap: "wrap",
           boxSizing: "border-box",
           width: "100%",
           textAlign: "center"
         }}
       >
-        {/* LADO IZQUIERDO: TEXTO */}
+        {/* LADO IZQUIERDO: TEXTOS PRINCIPALES */}
         <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <h1
             style={{
@@ -84,7 +82,7 @@ export default function Hero() {
             style={{
               fontSize: "clamp(15px, 4vw, 20px)",
               color: "#aaa",
-              marginBottom: "30px",
+              marginBottom: "40px",
               lineHeight: "1.5",
               maxWidth: "100%",
               boxSizing: "border-box"
@@ -93,33 +91,50 @@ export default function Hero() {
             Equipos profesionales reacondicionados y optimizados para el máximo rendimiento.
           </p>
 
-          <a
-            href="https://wa.me/34694296601"
-            target="_blank"
-            style={{
-              display: "inline-block",
-              background: "#25D366",
-              color: "white",
-              padding: "16px 20px",
-              borderRadius: "12px",
-              fontWeight: "bold",
-              fontSize: "16px",
-              textDecoration: "none",
-              boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
-              width: "100%",
-              maxWidth: "350px",
-              textAlign: "center",
-              boxSizing: "border-box",
-              marginBottom: "10px"
-            }}
-          >
-            Contactar por WhatsApp
-          </a>
-          
-          <span style={{ fontSize: "12px", color: "#666", display: "flex", alignItems: "center", gap: "5px" }}>
-            <span style={{ display: "inline-block", width: "8px", height: "8px", background: "#25D366", borderRadius: "50%", animation: "pulse 2s infinite" }}></span>
-            Atención Inmediata
-          </span>
+          {/* NUEVO BLOQUE: Estilo Apple Product Card */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "10px" }}>
+            <h2 style={{ fontSize: "clamp(26px, 6vw, 38px)", fontWeight: "bold", margin: "0 0 5px 0", color: "white", letterSpacing: "-0.5px" }}>
+              MacBook Air 15" M3
+            </h2>
+            <p style={{ fontSize: "clamp(15px, 4vw, 18px)", margin: "0 0 20px 0", color: "#888" }}>
+              Máxima configuración. 24GB RAM. 2TB SSD.
+            </p>
+            
+            <div style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
+              <a
+                href="#stock"
+                style={{
+                  padding: "10px 24px",
+                  borderRadius: "50px",
+                  border: "2px solid #25D366",
+                  color: "#25D366",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  transition: "all 0.3s ease"
+                }}
+              >
+                Más información
+              </a>
+              <a
+                href="https://wa.me/34694296601"
+                target="_blank"
+                style={{
+                  padding: "10px 24px",
+                  borderRadius: "50px",
+                  background: "#25D366",
+                  border: "2px solid #25D366",
+                  color: "#050505", // Texto en oscuro para contraste premium sobre el verde
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  transition: "all 0.3s ease"
+                }}
+              >
+                Comprar
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* LADO DERECHO: GALERÍA DESLIZABLE */}
@@ -130,7 +145,7 @@ export default function Hero() {
             height: "300px",
             display: "flex",
             alignItems: "center",
-            marginTop: "20px",
+            marginTop: "0px", /* Reducido para acercarlo a los botones */
             width: "100%",
             maxWidth: "100vw",
             boxSizing: "border-box"
@@ -191,28 +206,27 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Indicador visual con DOBLE FLECHA GRUESA Y ANIMACIÓN VERDE (← Desliza ➔) */}
+          {/* INDICADOR VISUAL: Subido hacia arriba pegándose a la imagen */}
           {heroImages.length > 1 && (
              <div style={{
                position: "absolute",
-               bottom: "-30px",
+               bottom: "10px", /* SUBIDO (antes estaba hundido en -30px) */
                left: "0",
                right: "0",
                display: "flex",
                justifyContent: "center",
                alignItems: "center",
                gap: "10px",
-               color: "#888", // Color base
-               fontSize: "16px",
+               color: "#888",
+               fontSize: "14px",
                fontWeight: "bold",
                letterSpacing: "1px",
                zIndex: 11,
-               animation: "greenPulse 2.5s infinite" /* PULSACIÓN VERDE AQUÍ */
+               animation: "greenPulse 2.5s infinite"
              }}>
-               {/* Usamos caracteres de flecha más gruesos y simétricos */}
-               <span style={{ fontSize: "20px" }}>⟵</span>
+               <span style={{ fontSize: "18px" }}>⟵</span>
                Desliza
-               <span style={{ fontSize: "20px" }}>⟶</span>
+               <span style={{ fontSize: "18px" }}>⟶</span>
              </div>
           )}
         </div>
