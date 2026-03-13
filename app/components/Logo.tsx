@@ -11,22 +11,23 @@ export default function Logo() {
         textDecoration: "none" 
       }}
     >
-      {/* Tu nuevo logo en PNG */}
+      {/* Tu logo en PNG */}
       <Image
         src="/logo.png"
         alt="Kinetic Labs Logo"
-        width={35}   /* Tamaño ajustado para el Header */
-        height={35}
+        width={32}
+        height={32}
         style={{ objectFit: "contain" }}
         priority
       />
-      {/* El texto de la marca */}
+      {/* Texto reducido a la mitad de tamaño */}
       <span 
         style={{ 
           color: "white", 
-          fontSize: "20px", 
+          fontSize: "12px", /* Estaba en 20px */
           fontWeight: "bold", 
-          letterSpacing: "-0.5px" 
+          letterSpacing: "0.5px",
+          textTransform: "uppercase" /* Queda más premium en tamaño pequeño */
         }}
       >
         Kinetic Labs
