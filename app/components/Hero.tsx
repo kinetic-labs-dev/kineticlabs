@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Hero() {
-  // 👈 AQUÍ ESTÁN LAS 6 FOTOS DEL MACBOOK
   // Asegúrate de que tienes mac1.png, mac2.png... hasta mac6.png en tu carpeta
   const heroImages = [
     "/products/macbook-air/mac1.png", 
@@ -24,14 +23,10 @@ export default function Hero() {
         boxSizing: "border-box"
       }}
     >
-      {/* TRUCO CTO: Ocultar scrollbar y crear la animación de la flecha */}
+      {/* TRUCO CTO: Ocultar scrollbar */}
       <style dangerouslySetInnerHTML={{__html: `
         .swipe-gallery::-webkit-scrollbar { display: none; }
         .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
-        @keyframes swipeArrow {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(8px); }
-        }
       `}} />
 
       <div
@@ -123,12 +118,12 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* LADO DERECHO: GALERÍA DESLIZABLE */}
+        {/* LADO DERECHO: GALERÍA DESLIZABLE CON FLECHAS */}
         <div
           style={{
             flex: "1 1 100%",
             position: "relative",
-            height: "300px", // Altura de la galería
+            height: "300px", 
             display: "flex",
             alignItems: "center",
             marginTop: "20px",
@@ -153,13 +148,57 @@ export default function Hero() {
             }}
           />
 
+          {/* Flecha de navegación IZQUIERDA (←) */}
+          <div style={{
+             position: "absolute",
+             top: "50%",
+             left: "10px",
+             transform: "translateY(-50%)",
+             width: "32px",
+             height: "32px",
+             background: "#228B22",
+             borderRadius: "50%",
+             display: "flex",
+             alignItems: "center",
+             justifyContent: "center",
+             color: "white",
+             fontSize: "20px",
+             zIndex: 12,
+             opacity: 0.7,
+             pointerEvents: "none" // Solo visual, el carrusel sigue siendo swipe
+          }}>
+            ←
+          </div>
+
+          {/* Flecha de navegación DERECHA (→) */}
+          <div style={{
+             position: "absolute",
+             top: "50%",
+             right: "10px",
+             transform: "translateY(-50%)",
+             width: "32px",
+             height: "32px",
+             background: "#228B22",
+             borderRadius: "50%",
+             display: "flex",
+             alignItems: "center",
+             justifyContent: "center",
+             color: "white",
+             fontSize: "20px",
+             zIndex: 12,
+             opacity: 0.7,
+             pointerEvents: "none"
+          }}>
+            →
+          </div>
+
           {/* Carrusel Swipe */}
           <div 
             className="swipe-gallery"
             style={{
               display: "flex",
               overflowX: "auto",
-              scrollSnapType: "x mandatory", // Efecto imán al deslizar
+              scrollSnapType: "x mandatory", 
               WebkitOverflowScrolling: "touch",
               width: "100%",
               height: "100%",
@@ -172,8 +211,8 @@ export default function Hero() {
               <div 
                 key={index}
                 style={{
-                  flex: "0 0 100%", // Ocupa todo el ancho
-                  scrollSnapAlign: "center", // Se centra al soltar el dedo
+                  flex: "0 0 100%", 
+                  scrollSnapAlign: "center", 
                   position: "relative",
                   height: "100%",
                   display: "flex",
@@ -186,32 +225,28 @@ export default function Hero() {
                   alt={`Kinetic Labs MacBook vista ${index + 1}`}
                   fill
                   style={{ objectFit: "contain" }}
-                  priority={index === 0} // Carga la primera foto al instante
+                  priority={index === 0} 
                 />
               </div>
             ))}
           </div>
 
-          {/* Indicador visual con flecha animada (Desliza ➔) */}
+          {/* Indicador visual simplificado (Desliza) */}
           {heroImages.length > 1 && (
              <div style={{
                position: "absolute",
-               bottom: "-30px", /* Bajado un poco para que no pise la foto */
+               bottom: "-30px",
                left: "0",
                right: "0",
                display: "flex",
                justifyContent: "center",
                alignItems: "center",
-               gap: "8px",
                color: "#888",
                fontSize: "14px",
                fontWeight: "bold",
                zIndex: 11
              }}>
                Desliza
-               <span style={{ display: "inline-block", animation: "swipeArrow 1.5s infinite", color: "#25D366" }}>
-                 ➔
-               </span>
              </div>
           )}
         </div>
