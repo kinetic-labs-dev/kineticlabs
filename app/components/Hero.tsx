@@ -1,12 +1,15 @@
 import Image from "next/image";
 
 export default function Hero() {
-  // 👈 AQUÍ PONES LAS RUTAS DE TUS IMÁGENES
-  // Si tus fotos acaban en .webp o .jpg, cámbialo aquí abajo:
+  // 👈 AQUÍ ESTÁN LAS 6 FOTOS DEL MACBOOK
+  // Asegúrate de que tienes mac1.png, mac2.png... hasta mac6.png en tu carpeta
   const heroImages = [
     "/products/macbook-air/mac1.png", 
     "/products/macbook-air/mac2.png",
     "/products/macbook-air/mac3.png",
+    "/products/macbook-air/mac4.png",
+    "/products/macbook-air/mac5.png",
+    "/products/macbook-air/mac6.png",
   ];
 
   return (
@@ -21,10 +24,14 @@ export default function Hero() {
         boxSizing: "border-box"
       }}
     >
-      {/* TRUCO CTO: Ocultar la barra de scroll nativa para un diseño más limpio */}
+      {/* TRUCO CTO: Ocultar scrollbar y crear la animación de la flecha */}
       <style dangerouslySetInnerHTML={{__html: `
         .swipe-gallery::-webkit-scrollbar { display: none; }
         .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes swipeArrow {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(8px); }
+        }
       `}} />
 
       <div
@@ -185,10 +192,26 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Indicador visual "Desliza" (Solo aparece si hay más de 1 foto) */}
+          {/* Indicador visual con flecha animada (Desliza ➔) */}
           {heroImages.length > 1 && (
-             <div style={{ position: "absolute", bottom: "-20px", left: "0", right: "0", textAlign: "center", color: "#555", fontSize: "12px", zIndex: 11 }}>
-               ← Desliza para ver más →
+             <div style={{
+               position: "absolute",
+               bottom: "-30px", /* Bajado un poco para que no pise la foto */
+               left: "0",
+               right: "0",
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+               gap: "8px",
+               color: "#888",
+               fontSize: "14px",
+               fontWeight: "bold",
+               zIndex: 11
+             }}>
+               Desliza
+               <span style={{ display: "inline-block", animation: "swipeArrow 1.5s infinite", color: "#25D366" }}>
+                 ➔
+               </span>
              </div>
           )}
         </div>
