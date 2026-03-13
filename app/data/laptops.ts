@@ -1,49 +1,23 @@
-export const laptops = [
+// ... tus otros portátiles arriba ...
   {
-    id: "dell-xps-15",
-    name: "Dell XPS 15 9500",
-    category: "Professional",
-    price: 995,
-    originalPrice: 1799,
-    image: "/products/dell-xps-15/hero.webp",
+    id: "macbook-air-m3-15",
+    name: "MacBook Air 15\" M3 (Máxima Configuración)",
+    category: "Premium Ultra-portable",
+    price: 1595,
+    originalPrice: 2529,
+    image: "/products/macbook-air/hero.png", 
     images: [
-      "/products/dell-xps-15/hero.webp",
-      "/products/dell-xps-15/frontal.webp",
-      "/products/dell-xps-15/lateral.webp",
-      "/products/dell-xps-15/teclado.webp",
-      "/products/dell-xps-15/trasera.webp"
+      "/products/macbook-air/hero.png"
     ],
-    cpu: "Intel Core i9-10885H",
-    ram: "64GB DDR4",
-    storage: "2TB NVMe SSD",
-    screen: '15.6" 4K UHD+ Touch',
+    cpu: "Apple M3 (8-core CPU, 10-core GPU)",
+    ram: "24GB Memoria Unificada",
+    storage: "2TB SSD NVMe",
+    screen: '15.3" Liquid Retina con True Tone',
     specs: {
-      processor: "Intel Core i9-10885H",
-      ram: "64GB DDR4",
-      storage: "2TB NVMe SSD",
-      screen: '15.6" 4K UHD+ Touch'
-    }
-  },
-  {
-    id: "surface-pro",
-    name: "Microsoft Surface Pro",
-    category: "Ultra-portable",
-    price: 895,
-    originalPrice: 1499,
-    // Asegúrate de crear la carpeta public/products/surface-pro y meter un hero.webp ahí
-    image: "/products/surface-pro/hero.webp",
-    images: [
-      "/products/surface-pro/hero.webp"
-    ],
-    cpu: "Intel Core i7-1185G7",
-    ram: "32GB LPDDR4x",
-    storage: "1TB SSD",
-    screen: '13" PixelSense Flow Display',
-    specs: {
-      processor: "Intel Core i7-1185G7",
-      ram: "32GB LPDDR4x",
-      storage: "1TB SSD",
-      screen: '13" PixelSense'
+      processor: "Apple M3",
+      ram: "24GB Unified",
+      storage: "2TB SSD",
+      screen: '15.3" Liquid Retina'
     }
   }
 ];

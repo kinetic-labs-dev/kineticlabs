@@ -20,12 +20,12 @@ export default function Hero() {
           padding: "50px 20px",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center", /* Cambiado a center */
+          justifyContent: "center",
           gap: "30px",
           flexWrap: "wrap",
           boxSizing: "border-box",
           width: "100%",
-          textAlign: "center" /* TODO EL TEXTO CENTRADO AQUÍ */
+          textAlign: "center"
         }}
       >
         {/* LADO IZQUIERDO: TEXTO */}
@@ -40,7 +40,6 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            {/* Diseño escalonado de alto impacto - CENTRADO */}
             <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
               PORTÁTILES
             </span>
@@ -61,7 +60,6 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Subtítulo ajustado para partirse en móvil */}
           <p
             style={{
               fontSize: "clamp(15px, 4vw, 20px)",
@@ -72,7 +70,6 @@ export default function Hero() {
               boxSizing: "border-box"
             }}
           >
-            {/* Truco: Forzar el salto solo en móviles pequeños con CSS inline */}
             Equipos profesionales reacondicionados y optimizados para el máximo rendimiento.
           </p>
 
@@ -90,7 +87,7 @@ export default function Hero() {
               textDecoration: "none",
               boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
               width: "100%",
-              maxWidth: "350px", /* Botón centrado y acotado */
+              maxWidth: "350px",
               textAlign: "center",
               boxSizing: "border-box"
             }}
@@ -99,7 +96,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* LADO DERECHO: IMAGEN FLOTANDO */}
+        {/* LADO DERECHO: MACBOOK AIR GIGANTE */}
         <div
           style={{
             flex: "1 1 100%",
@@ -114,9 +111,10 @@ export default function Hero() {
             boxSizing: "border-box"
           }}
         >
+          {/* Asegúrate de tener la foto en public/products/macbook-air/hero.png o .webp */}
           <Image
-            src="/products/dell-xps-15/hero.webp"
-            alt="Kinetic Labs Elite Laptop"
+            src="/products/macbook-air/hero.png" 
+            alt="MacBook Air M3 Elite"
             fill
             style={{ objectFit: "contain", zIndex: 10 }}
             priority

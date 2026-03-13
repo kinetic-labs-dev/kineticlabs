@@ -10,10 +10,10 @@ export default function Footer() {
         <p style={{ 
           color: "#888", 
           marginTop: "20px", 
-          fontSize: "15px", /* Un punto menos para asegurar que cabe bien */
+          fontSize: "15px", 
           lineHeight: "1.6", 
-          maxWidth: "100%", /* Asegura que no se salga de la pantalla */
-          wordWrap: "break-word" /* Permite saltos naturales si la pantalla es enana */
+          maxWidth: "100%", 
+          wordWrap: "break-word" 
         }}>
           Equipos profesionales reacondicionados y optimizados <br />
           para el máximo rendimiento.

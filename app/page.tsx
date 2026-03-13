@@ -27,13 +27,15 @@ export default function Home() {
           margin: "auto",
         }}
       >
+        {/* TÍTULO EN VERDE */}
         <h2
           style={{
             fontSize: "28px",
             marginBottom: "30px",
             textAlign: "center",
             fontWeight: "bold",
-            textTransform: "uppercase" // MAYÚSCULAS
+            textTransform: "uppercase",
+            color: "#25D366" 
           }}
         >
           🔥 MEJOR CALIDAD PRECIO
@@ -50,13 +52,15 @@ export default function Home() {
           margin: "auto",
         }}
       >
+        {/* TÍTULO EN VERDE */}
         <h2
           style={{
             fontSize: "28px",
             marginBottom: "40px",
             textAlign: "center",
             fontWeight: "bold",
-            textTransform: "uppercase" // MAYÚSCULAS
+            textTransform: "uppercase",
+            color: "#25D366" 
           }}
         >
           EQUIPOS EN STOCK

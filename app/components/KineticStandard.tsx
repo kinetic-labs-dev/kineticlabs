@@ -1,25 +1,9 @@
 export default function KineticStandard() {
   const steps = [
-    { 
-      icon: "🔬", 
-      title: "Auditoría de 40 Puntos", 
-      desc: "Cada equipo pasa por un test de estrés térmico, de hardware y software antes de ser aprobado." 
-    },
-    { 
-      icon: "🔋", 
-      title: "Baterías Certificadas", 
-      desc: "Solo aceptamos equipos con baterías en estado óptimo de retención. Autonomía profesional." 
-    },
-    { 
-      icon: "✨", 
-      title: "Mantenimiento Deep-Clean", 
-      desc: "Higienización ultrasónica y renovación de pasta térmica de alto rendimiento." 
-    },
-    { 
-      icon: "🛡️", 
-      title: "Garantía de Élite", 
-      desc: "1 año de garantía Kinetic y soporte prioritario y directo a través de WhatsApp." 
-    }
+    { icon: "🔬", title: "Auditoría de 40 Puntos", desc: "Cada equipo pasa por un test de estrés térmico, de hardware y software antes de ser aprobado." },
+    { icon: "🔋", title: "Baterías Certificadas", desc: "Solo aceptamos equipos con baterías en estado óptimo de retención. Autonomía profesional." },
+    { icon: "✨", title: "Mantenimiento Deep-Clean", desc: "Higienización ultrasónica y renovación de pasta térmica de alto rendimiento." },
+    { icon: "🛡️", title: "Garantía de Élite", desc: "1 año de garantía Kinetic y soporte prioritario y directo a través de WhatsApp." }
   ];
 
   return (
@@ -35,19 +19,12 @@ export default function KineticStandard() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "10px" /* AQUÍ ESTÁ LA CLAVE: Reducido para juntar las cajas */
+          gap: "10px" /* Tarjetas cohesionadas */
         }}>
           {steps.map((step, i) => (
             <div key={i} style={{
-              background: "#111",
-              border: "1px solid #222",
-              borderRadius: "16px",
-              padding: "30px",
-              display: "flex",               
-              flexDirection: "column",       
-              alignItems: "center",          
-              textAlign: "center",           
-              transition: "transform 0.3s ease, borderColor 0.3s ease",
+              background: "#111", border: "1px solid #222", borderRadius: "16px", padding: "30px",
+              display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
             }}>
               <div style={{ fontSize: "40px", marginBottom: "20px" }}>{step.icon}</div>
               <h3 style={{ color: "white", fontSize: "20px", marginBottom: "12px", fontWeight: "bold" }}>{step.title}</h3>
