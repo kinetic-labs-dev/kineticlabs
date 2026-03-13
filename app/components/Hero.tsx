@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function Hero() {
+  // Asegúrate de que tienes mac1.png, mac2.png... hasta mac6.png en tu carpeta
   const heroImages = [
     "/products/macbook-air/mac1.png", 
     "/products/macbook-air/mac2.png",
@@ -22,17 +23,13 @@ export default function Hero() {
         boxSizing: "border-box"
       }}
     >
-      {/* TRUCO CTO: Ocultar scrollbar y crear la animación de la doble flecha */}
+      {/* TRUCO CTO: Ocultar scrollbar y crear la animación de pulsación verde */}
       <style dangerouslySetInnerHTML={{__html: `
         .swipe-gallery::-webkit-scrollbar { display: none; }
         .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
-        @keyframes swipeArrowRight {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(6px); }
-        }
-        @keyframes swipeArrowLeft {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(-6px); }
+        @keyframes greenPulse {
+          0%, 100% { color: #888; }
+          50% { color: #25D366; }
         }
       `}} />
 
@@ -194,7 +191,7 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Indicador visual con doble flecha animada (← Desliza ➔) */}
+          {/* Indicador visual con DOBLE FLECHA GRUESA Y ANIMACIÓN VERDE (← Desliza ➔) */}
           {heroImages.length > 1 && (
              <div style={{
                position: "absolute",
@@ -204,19 +201,18 @@ export default function Hero() {
                display: "flex",
                justifyContent: "center",
                alignItems: "center",
-               gap: "8px",
-               color: "#888",
-               fontSize: "14px",
+               gap: "10px",
+               color: "#888", // Color base
+               fontSize: "16px",
                fontWeight: "bold",
-               zIndex: 11
+               letterSpacing: "1px",
+               zIndex: 11,
+               animation: "greenPulse 2.5s infinite" /* PULSACIÓN VERDE AQUÍ */
              }}>
-               <span style={{ display: "inline-block", animation: "swipeArrowLeft 1.5s infinite", color: "#25D366" }}>
-                 ←
-               </span>
+               {/* Usamos caracteres de flecha más gruesos y simétricos */}
+               <span style={{ fontSize: "20px" }}>⟵</span>
                Desliza
-               <span style={{ display: "inline-block", animation: "swipeArrowRight 1.5s infinite", color: "#25D366" }}>
-                 ➔
-               </span>
+               <span style={{ fontSize: "20px" }}>⟶</span>
              </div>
           )}
         </div>
