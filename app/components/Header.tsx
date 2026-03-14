@@ -1,22 +1,13 @@
-"use client"; // 👈 FUNDAMENTAL: Le dice a Next.js que este componente tiene interactividad
+"use client";
 
 import { useState } from "react";
 import Logo from "./Logo";
 
 export default function Header() {
-  // Estado para controlar si el menú está abierto o cerrado
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const waText = encodeURIComponent("¡Hola! He visto vuestra página de Kinetic Labs y ...");
   const waLink = `https://wa.me/34694296601?text=${waText}`;
-
-  // Lista de tus categorías
-  const menuItems = [
-    "MacBook Air",
-    "MacBook Pro",
-    "Surface Microsoft Pro",
-    "HP"
-  ];
 
   return (
     <>
@@ -56,7 +47,7 @@ export default function Header() {
               </svg>
             </button>
 
-            {/* ICONO MENÚ HAMBURGUESA (Abre el menú al hacer clic) */}
+            {/* ICONO MENÚ HAMBURGUESA */}
             <button 
               onClick={() => setIsMenuOpen(true)}
               style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center" }} 
@@ -73,7 +64,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* OVERLAY DEL MENÚ DESPLEGABLE */}
+      {/* OVERLAY DEL MENÚ DESPLEGABLE (ESTILO APPLE) */}
       {isMenuOpen && (
         <div style={{
           position: "fixed",
@@ -81,60 +72,68 @@ export default function Header() {
           left: 0,
           width: "100vw",
           height: "100vh",
-          background: "rgba(5, 5, 5, 0.98)", /* Fondo oscuro casi opaco */
-          backdropFilter: "blur(10px)", /* Difumina lo que hay detrás */
+          background: "#000000", /* Fondo completamente negro */
           zIndex: 9999,
           display: "flex",
           flexDirection: "column",
           padding: "20px",
           boxSizing: "border-box"
         }}>
-          {/* Botón de cerrar (X) en la esquina superior derecha */}
+          {/* Botón de cerrar (X) a la derecha */}
           <div style={{ display: "flex", justifyContent: "flex-end", padding: "10px 0" }}>
             <button 
               onClick={() => setIsMenuOpen(false)}
               style={{ background: "none", border: "none", cursor: "pointer", color: "white", padding: "10px" }}
               aria-label="Cerrar menú"
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
           </div>
 
-          {/* Enlaces del menú */}
+          {/* Enlaces del menú (Alineados a la derecha, fuente más pequeña y fina) */}
           <nav style={{ 
             display: "flex", 
             flexDirection: "column", 
-            gap: "40px", 
-            marginTop: "60px", 
-            alignItems: "center" 
+            gap: "24px", 
+            marginTop: "30px", 
+            alignItems: "flex-end", /* Justificado a la derecha */
+            paddingRight: "10px"
           }}>
-            {menuItems.map((item, i) => (
-              <a 
-                key={i} 
-                href="#" /* Más adelante cambiaremos esto por los enlaces reales a las categorías */
-                onClick={() => setIsMenuOpen(false)} /* Cierra el menú al hacer clic en un enlace */
-                style={{ 
-                  color: "white", 
-                  fontSize: "28px", 
-                  textDecoration: "none", 
-                  fontWeight: "900",
-                  letterSpacing: "-1px"
-                }}
-              >
-                {item}
-              </a>
-            ))}
+            <a 
+              href="#" 
+              onClick={() => setIsMenuOpen(false)} 
+              style={{ color: "white", fontSize: "22px", textDecoration: "none", fontWeight: "500", letterSpacing: "0.5px" }}
+            >
+              MacBook Air
+            </a>
+            
+            <a 
+              href="#" 
+              onClick={() => setIsMenuOpen(false)} 
+              style={{ color: "white", fontSize: "22px", textDecoration: "none", fontWeight: "500", letterSpacing: "0.5px" }}
+            >
+              MacBook Pro
+            </a>
+            
+            <a 
+              href="#" 
+              onClick={() => setIsMenuOpen(false)} 
+              style={{ color: "white", fontSize: "22px", textDecoration: "none", fontWeight: "500", letterSpacing: "0.5px" }}
+            >
+              Surface Pro <em style={{ fontStyle: "italic", fontWeight: "400" }}>Microsoft</em>
+            </a>
+            
+            <a 
+              href="#" 
+              onClick={() => setIsMenuOpen(false)} 
+              style={{ color: "white", fontSize: "22px", textDecoration: "none", fontWeight: "500", letterSpacing: "0.5px" }}
+            >
+              HP
+            </a>
           </nav>
-
-          {/* Sello inferior en el menú */}
-          <div style={{ marginTop: "auto", textAlign: "center", paddingBottom: "30px" }}>
-            <span style={{ color: "#25D366", fontWeight: "bold", fontSize: "14px", letterSpacing: "2px" }}>
-              EL ESTÁNDAR KINETIC
-            </span>
-          </div>
         </div>
       )}
     </>
