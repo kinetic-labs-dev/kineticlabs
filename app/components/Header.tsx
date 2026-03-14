@@ -64,7 +64,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* OVERLAY DEL MENÚ DESPLEGABLE (ESTILO APPLE) */}
+      {/* OVERLAY DEL MENÚ DESPLEGABLE */}
       {isMenuOpen && (
         <div style={{
           position: "fixed",
@@ -72,7 +72,7 @@ export default function Header() {
           left: 0,
           width: "100vw",
           height: "100vh",
-          background: "#000000", /* Fondo completamente negro */
+          background: "#000000", /* Fondo negro */
           zIndex: 9999,
           display: "flex",
           flexDirection: "column",
@@ -93,14 +93,14 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Enlaces del menú (Alineados a la derecha, fuente más pequeña y fina) */}
+          {/* Enlaces del menú (Alineados a la IZQUIERDA) */}
           <nav style={{ 
             display: "flex", 
             flexDirection: "column", 
             gap: "24px", 
             marginTop: "30px", 
-            alignItems: "flex-end", /* Justificado a la derecha */
-            paddingRight: "10px"
+            alignItems: "flex-start", /* CLAVE: Alineación a la izquierda */
+            paddingLeft: "20px" /* Margen izquierdo para que no se pegue al borde de la pantalla */
           }}>
             <a 
               href="#" 
