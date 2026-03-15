@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Hero() {
-  // Asegúrate de que tienes mac1.png... hasta mac6.png en tu carpeta
   const heroImages = [
     "/products/macbook-air/mac1.png", 
     "/products/macbook-air/mac2.png",
@@ -23,10 +22,13 @@ export default function Hero() {
         boxSizing: "border-box"
       }}
     >
-      {/* TRUCO CTO: Ocultar scrollbar */}
       <style dangerouslySetInnerHTML={{__html: `
         .swipe-gallery::-webkit-scrollbar { display: none; }
         .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes greenPulse {
+          0%, 100% { color: #888; }
+          50% { color: #25D366; }
+        }
       `}} />
 
       <div
@@ -44,27 +46,52 @@ export default function Hero() {
           textAlign: "center"
         }}
       >
-        {/* LADO IZQUIERDO: TEXTOS Y BOTONES (Ahora un pelín menos prioritario) */}
-        <div style={{ 
-          flex: "1 1 100%", /* Ocupa todo el ancho en móvil, se reparte en escritorio */
-          maxWidth: "100%", 
-          boxSizing: "border-box", 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center" 
-        }}>
-          {/* ... Textos y Títulos (iguales) ... */}
-          <h1 style={{ fontWeight: "900", lineHeight: "1.1", marginBottom: "15px", letterSpacing: "-1px", width: "100%", boxSizing: "border-box" }}>
-            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>PORTÁTILES</span>
-            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>DE <span style={{ color: "#25D366" }}>ÉLITE</span></span>
-            <span style={{ fontSize: "clamp(24px, 6vw, 42px)", fontWeight: "800", color: "white", display: "block", marginTop: "8px", letterSpacing: "1px" }}>REACONDICIONADOS</span>
+        {/* LADO IZQUIERDO: TEXTOS PRINCIPALES */}
+        <div style={{ flex: "1 1 100%", maxWidth: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <h1
+            style={{
+              fontWeight: "900",
+              lineHeight: "1.1",
+              marginBottom: "15px",
+              letterSpacing: "-1px",
+              width: "100%",
+              boxSizing: "border-box"
+            }}
+          >
+            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
+              PORTÁTILES
+            </span>
+            <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>
+              DE <span style={{ color: "#25D366" }}>ÉLITE</span>
+            </span>
+            <span 
+              style={{ 
+                fontSize: "clamp(24px, 6vw, 42px)", 
+                fontWeight: "800",
+                color: "white", 
+                display: "block", 
+                marginTop: "8px", 
+                letterSpacing: "1px", 
+              }}
+            >
+              REACONDICIONADOS
+            </span>
           </h1>
 
-          <p style={{ fontSize: "clamp(15px, 4vw, 20px)", color: "#aaa", marginBottom: "40px", lineHeight: "1.5", maxWidth: "100%", boxSizing: "border-box" }}>
+          <p
+            style={{
+              fontSize: "clamp(15px, 4vw, 20px)",
+              color: "#aaa",
+              marginBottom: "40px",
+              lineHeight: "1.5",
+              maxWidth: "100%",
+              boxSizing: "border-box"
+            }}
+          >
             Equipos profesionales reacondicionados y optimizados para el máximo rendimiento.
           </p>
 
-          {/* Bloque Apple Card con botones */}
+          {/* BLOQUE APPLE CARD CON BOTONES EN 1 LÍNEA */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "10px", width: "100%" }}>
             <h2 style={{ fontSize: "clamp(26px, 6vw, 38px)", fontWeight: "bold", margin: "0 0 5px 0", color: "white", letterSpacing: "-0.5px" }}>
               MacBook Air 15" M3
@@ -73,33 +100,79 @@ export default function Hero() {
               Máxima configuración. 24GB RAM. 2TB SSD.
             </p>
             
+            {/* AQUÍ ESTÁ LA MAGIA: flexWrap "nowrap" para forzar 1 sola línea */}
             <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "nowrap", width: "100%", maxWidth: "400px" }}>
-              <a href="#stock" style={{ padding: "10px 16px", borderRadius: "50px", border: "2px solid #25D366", color: "#25D366", textDecoration: "none", fontWeight: "600", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center" }}>Más información</a>
-              <a href="https://wa.me/34694296601" target="_blank" style={{ padding: "10px 16px", borderRadius: "50px", background: "#25D366", border: "2px solid #25D366", color: "#050505", textDecoration: "none", fontWeight: "bold", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center" }}>Comprar</a>
+              <a
+                href="#stock"
+                style={{
+                  padding: "10px 16px", /* Padding ajustado */
+                  borderRadius: "50px",
+                  border: "2px solid #25D366",
+                  color: "#25D366",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  fontSize: "clamp(13px, 3.5vw, 16px)", /* Fuente dinámica */
+                  transition: "all 0.3s ease",
+                  whiteSpace: "nowrap", /* Prohíbe que el texto del botón se parta */
+                  flex: "1", /* Hace que ambos botones ocupen lo mismo */
+                  textAlign: "center"
+                }}
+              >
+                Más información
+              </a>
+              <a
+                href="https://wa.me/34694296601"
+                target="_blank"
+                style={{
+                  padding: "10px 16px", /* Padding ajustado */
+                  borderRadius: "50px",
+                  background: "#25D366",
+                  border: "2px solid #25D366",
+                  color: "#050505", 
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  fontSize: "clamp(13px, 3.5vw, 16px)", /* Fuente dinámica */
+                  transition: "all 0.3s ease",
+                  whiteSpace: "nowrap", /* Prohíbe que el texto del botón se parta */
+                  flex: "1", /* Hace que ambos botones ocupen lo mismo */
+                  textAlign: "center"
+                }}
+              >
+                Comprar
+              </a>
             </div>
           </div>
         </div>
 
-        {/* LADO DERECHO: GALERÍA DESLIZABLE (AQUÍ ESTÁ EL CAMBIO) */}
+        {/* LADO DERECHO: GALERÍA DESLIZABLE */}
         <div
           style={{
-            /* CAMBIO 1: Aumentamos la prioridad en pantallas grandes (flex-grow: 1.2) */
-            flex: "1.2 1 100%", /* Le damos un 20% más de peso sobre el texto si hay espacio */
+            flex: "1 1 100%",
             position: "relative",
-            
-            /* CAMBIO 2: Subimos la altura del contenedor un "pelín" (de 300px a 340px) */
-            height: "340px", 
-            
+            height: "300px",
             display: "flex",
             alignItems: "center",
-            marginTop: "10px", /* Ajustado para que no se pegue arriba */
+            marginTop: "0px",
             width: "100%",
             maxWidth: "100vw",
             boxSizing: "border-box"
           }}
         >
           {/* Luz de fondo */}
-          <div style={{ position: "absolute", width: "250px", height: "250px", background: "rgba(37, 211, 102, 0.15)", borderRadius: "50%", filter: "blur(50px)", zIndex: 1, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+          <div
+            style={{
+              position: "absolute",
+              width: "250px",
+              height: "250px",
+              background: "rgba(37, 211, 102, 0.15)",
+              borderRadius: "50%",
+              filter: "blur(50px)",
+              zIndex: 1,
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)"
+            }}
+          />
 
           {/* Carrusel Swipe */}
           <div 
@@ -129,9 +202,6 @@ export default function Hero() {
                   alignItems: "center"
                 }}
               >
-                {/* CAMBIO 3: La imagen se mantiene en 'contain' pero el contenedor padre es más grande, 
-                    lo que la fuerza a crecer más sin pixelar. No hay que cambiar la imagen de Next,
-                    sino el estilo del contenedor. */}
                 <Image
                   src={src}
                   alt={`Kinetic Labs MacBook vista ${index + 1}`}
