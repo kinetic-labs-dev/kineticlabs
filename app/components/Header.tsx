@@ -132,7 +132,7 @@ export default function Header() {
               style={{ color: "white", fontSize: "22px", textDecoration: "none", fontWeight: "500", letterSpacing: "0.5px" }}
             >
               HP
-            </a>
+             </a>
           </nav>
         </div>
       )}
