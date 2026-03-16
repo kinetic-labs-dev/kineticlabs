@@ -6,8 +6,9 @@ export default function KineticStandard() {
     { icon: "🛡️", title: "Garantía de Élite", desc: "1 año de garantía Kinetic y soporte prioritario y directo por WhatsApp." }
   ];
 
-  const goldTextGradient = {
-    background: "linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #D4AF37 50%, #FBF5B7 70%, #AA771C 100%)",
+  // Gradiente Azul Metálico
+  const blueTextGradient = {
+    background: "linear-gradient(135deg, #0202A4 0%, #7676FF 30%, #0303F7 50%, #7676FF 70%, #0202A4 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -18,7 +19,7 @@ export default function KineticStandard() {
     <section style={{ padding: "80px 20px", background: "#ffffff", borderTop: "1px solid #e5e5ea", borderBottom: "1px solid #e5e5ea" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
         <h2 style={{ fontSize: "clamp(28px, 5vw, 44px)", fontWeight: "900", marginBottom: "15px", color: "#1d1d1f", letterSpacing: "-1px" }}>
-          EL ESTÁNDAR <span style={goldTextGradient}>KINETIC</span>
+          EL ESTÁNDAR <span style={blueTextGradient}>KINETIC</span>
         </h2>
         <p style={{ color: "#555", fontSize: "18px", marginBottom: "60px", maxWidth: "700px", margin: "0 auto 50px", lineHeight: "1.6" }}>
           No vendemos portátiles de segunda mano. Construimos máquinas reacondicionadas de élite preparadas para el máximo nivel de exigencia técnica.
@@ -27,7 +28,7 @@ export default function KineticStandard() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "10px" }}>
           {steps.map((step, i) => (
             <div key={i} style={{
-              background: "#f5f5f7", /* Blanco roto Premium */
+              background: "#f5f5f7",
               border: "1px solid #e5e5ea",
               borderRadius: "16px",
               padding: "30px",

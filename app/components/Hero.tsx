@@ -15,9 +15,9 @@ export default function Hero() {
     "/products/macbook-air/mac6.png",
   ];
 
-  // Variables del dorado con reflejos
-  const goldTextGradient = {
-    background: "linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #D4AF37 50%, #FBF5B7 70%, #AA771C 100%)",
+  // Variables del AZUL ELÉCTRICO con reflejos (Usando #0303F7)
+  const blueTextGradient = {
+    background: "linear-gradient(135deg, #0202A4 0%, #7676FF 30%, #0303F7 50%, #7676FF 70%, #0202A4 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -25,7 +25,8 @@ export default function Hero() {
     display: "inline-block"
   };
 
-  const goldButtonGradient = "linear-gradient(135deg, #BF953F 0%, #FCF6BA 20%, #D4AF37 50%, #FBF5B7 80%, #AA771C 100%)";
+  const blueButtonGradient = "linear-gradient(135deg, #0202A4 0%, #7676FF 20%, #0303F7 50%, #7676FF 80%, #0202A4 100%)";
+  const electricBlue = "#0303F7"; // Tu color azul base
 
   return (
     <>
@@ -33,7 +34,7 @@ export default function Hero() {
         <style dangerouslySetInnerHTML={{__html: `
           .swipe-gallery::-webkit-scrollbar { display: none; }
           .swipe-gallery { -ms-overflow-style: none; scrollbar-width: none; }
-          @keyframes goldPulse { 0%, 100% { color: #888; } 50% { color: #D4AF37; } }
+          @keyframes bluePulse { 0%, 100% { color: #888; } 50% { color: ${electricBlue}; } }
           @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         `}} />
 
@@ -43,7 +44,8 @@ export default function Hero() {
             
             <h1 style={{ fontWeight: "900", lineHeight: "1.1", marginBottom: "15px", letterSpacing: "-1px", width: "100%", boxSizing: "border-box" }}>
               <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>PORTÁTILES</span>
-              <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>DE <span style={goldTextGradient}>ÉLITE</span></span>
+              {/* ÉLITE ahora en Azul Eléctrico Reflectante */}
+              <span style={{ fontSize: "clamp(32px, 9vw, 64px)", display: "block" }}>DE <span style={blueTextGradient}>ÉLITE</span></span>
               <span style={{ fontSize: "clamp(24px, 6vw, 42px)", fontWeight: "800", color: "#1d1d1f", display: "block", marginTop: "8px", letterSpacing: "1px" }}>REACONDICIONADOS</span>
             </h1>
 
@@ -55,18 +57,19 @@ export default function Hero() {
               <h2 style={{ fontSize: "clamp(26px, 6vw, 38px)", fontWeight: "bold", margin: "0 0 5px 0", color: "#1d1d1f", letterSpacing: "-0.5px" }}>
                 MacBook Air 15" M3
               </h2>
-              <p style={{ fontSize: "clamp(14px, 3.5vw, 18px)", margin: "0 0 20px 0", color: "#555" }}>
+              <p style={{ fontSize: "clamp(14px, 3.5vw, 18px)", margin: "0 0 20px 0", color: "#888" }}>
                 Máxima configuración. 24GB RAM. 2TB SSD.
               </p>
               
               <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "nowrap", width: "100%", maxWidth: "400px" }}>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  style={{ background: "transparent", cursor: "pointer", padding: "10px 16px", borderRadius: "50px", border: "2px solid #D4AF37", color: "#D4AF37", fontWeight: "600", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center" }}
+                  style={{ background: "transparent", cursor: "pointer", padding: "10px 16px", borderRadius: "50px", border: `2px solid ${electricBlue}`, color: electricBlue, fontWeight: "600", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center" }}
                 >
                   Más información
                 </button>
-                <a href="https://wa.me/34694296601" target="_blank" rel="noopener noreferrer" style={{ padding: "10px 16px", borderRadius: "50px", background: goldButtonGradient, border: "none", color: "#000000", textDecoration: "none", fontWeight: "bold", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* Botón Comprar con gradiente azul metálico */}
+                <a href="https://wa.me/34694296601" target="_blank" rel="noopener noreferrer" style={{ padding: "10px 16px", borderRadius: "50px", background: blueButtonGradient, border: "none", color: "#ffffff", textDecoration: "none", fontWeight: "bold", fontSize: "clamp(13px, 3.5vw, 16px)", transition: "all 0.3s ease", whiteSpace: "nowrap", flex: "1", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   Comprar
                 </a>
               </div>
@@ -74,7 +77,8 @@ export default function Hero() {
           </div>
 
           <div style={{ flex: "1.2 1 100%", position: "relative", height: "340px", display: "flex", alignItems: "center", marginTop: "10px", width: "100%", maxWidth: "100vw", boxSizing: "border-box" }}>
-            <div style={{ position: "absolute", width: "250px", height: "250px", background: "rgba(212, 175, 55, 0.15)", borderRadius: "50%", filter: "blur(50px)", zIndex: 1, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+            {/* Luz de fondo en tono azul eléctrico */}
+            <div style={{ position: "absolute", width: "250px", height: "250px", background: "rgba(3, 3, 247, 0.15)", borderRadius: "50%", filter: "blur(50px)", zIndex: 1, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
 
             <div className="swipe-gallery" style={{ display: "flex", overflowX: "auto", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", width: "100%", height: "100%", zIndex: 10, gap: "20px", padding: "0 10px" }}>
               {heroImages.map((src, index) => (
@@ -84,8 +88,9 @@ export default function Hero() {
               ))}
             </div>
 
+            {/* Animación azul para el texto Desliza */}
             {heroImages.length > 1 && (
-               <div style={{ position: "absolute", bottom: "10px", left: "0", right: "0", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", color: "#888", fontSize: "14px", fontWeight: "bold", letterSpacing: "1px", zIndex: 11, animation: "goldPulse 2.5s infinite" }}>
+               <div style={{ position: "absolute", bottom: "10px", left: "0", right: "0", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", color: "#888", fontSize: "14px", fontWeight: "bold", letterSpacing: "1px", zIndex: 11, animation: "bluePulse 2.5s infinite" }}>
                  <span style={{ fontSize: "18px" }}>⟵</span> Desliza <span style={{ fontSize: "18px" }}>⟶</span>
                </div>
             )}
@@ -119,12 +124,13 @@ export default function Hero() {
                 { label: "Garantía", desc: "1 año de Garantía Kinetic Élite" }
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#goldGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
+                  {/* Iconos de check en Azul Eléctrico Reflectante */}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#blueGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
                     <defs>
-                      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#BF953F" />
-                        <stop offset="50%" stopColor="#FCF6BA" />
-                        <stop offset="100%" stopColor="#AA771C" />
+                      <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#0202A4" />
+                        <stop offset="50%" stopColor="#7676FF" />
+                        <stop offset="100%" stopColor="#0303F7" />
                       </linearGradient>
                     </defs>
                     <polyline points="20 6 9 17 4 12"></polyline>

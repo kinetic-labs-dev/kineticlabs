@@ -9,9 +9,10 @@ export default function Home() {
     current.price < prev.price ? current : prev
   )
 
-  // 👑 TRUCO CTO: El gradiente dorado metálico con reflejos de luz
-  const goldTextGradient = {
-    background: "linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #D4AF37 50%, #FBF5B7 70%, #AA771C 100%)",
+  // 👑 NUEVO TRUCO CTO: El gradiente Azul Metálico con reflejos de neón
+  // Usando tu color base #0303F7
+  const blueTextGradient = {
+    background: "linear-gradient(135deg, #0202A4 0%, #7676FF 30%, #0303F7 50%, #7676FF 70%, #0202A4 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <main
       style={{
-        background: "#f5f5f7", /* Fondo claro para toda la web */
+        background: "#f5f5f7", /* Mantenemos fondo claro premium */
         minHeight: "100vh",
         color: "#1d1d1f",
       }}
@@ -33,7 +34,7 @@ export default function Home() {
       <section
         style={{ padding: "60px 20px 20px 20px", maxWidth: "1200px", margin: "auto" }}
       >
-        <h2 style={{ fontSize: "28px", marginBottom: "30px", textAlign: "center", fontWeight: "900", textTransform: "uppercase", ...goldTextGradient }}>
+        <h2 style={{ fontSize: "28px", marginBottom: "30px", textAlign: "center", fontWeight: "900", textTransform: "uppercase", ...blueTextGradient }}>
           🔥 MEJOR CALIDAD PRECIO
         </h2>
         <div style={{ maxWidth: "350px", margin: "auto" }}>
@@ -44,7 +45,7 @@ export default function Home() {
       <section
         style={{ padding: "60px 20px 100px 20px", maxWidth: "1200px", margin: "auto" }}
       >
-        <h2 style={{ fontSize: "28px", marginBottom: "40px", textAlign: "center", fontWeight: "900", textTransform: "uppercase", ...goldTextGradient }}>
+        <h2 style={{ fontSize: "28px", marginBottom: "40px", textAlign: "center", fontWeight: "900", textTransform: "uppercase", ...blueTextGradient }}>
           EQUIPOS EN STOCK
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "30px" }}>
