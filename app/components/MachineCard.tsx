@@ -1,44 +1,76 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function MachineCard({ laptop }: { laptop: any }) {
-  // TRUCO CTO: Extraemos la foto de forma segura para las tarjetas
-  const imageSrc = laptop.images ? laptop.images[0] : laptop.image;
+// Definimos la estructura de datos que recibe la tarjeta
+interface Laptop {
+  id: string;
+  name: string;
+  price: number;
+  originalPrice: number;
+  image: string;
+  cpu?: string;
+  ram?: string;
+  storage?: string;
+}
+
+export default function MachineCard({ laptop }: { laptop: Laptop }) {
+  const electricBlue = "#0303F7";
 
   return (
-    <Link 
-      href={`/laptop/${laptop.id}`} 
-      style={{ textDecoration: "none", color: "inherit" }}
-    >
-      <div 
-        style={{ 
-          background: "#111", 
-          borderRadius: "16px", 
-          padding: "20px", 
-          border: "1px solid #222",
-          transition: "transform 0.2s, borderColor 0.2s",
-          cursor: "pointer"
+    <Link href={`/laptop/${laptop.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+      <div
+        style={{
+          background: "#EBEBEB", /* El fondo grisáceo que pediste */
+          borderRadius: "16px",
+          padding: "30px 20px",
+          textAlign: "center",
+          transition: "transform 0.2s ease, boxShadow 0.2s ease",
+          boxSizing: "border-box",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+        /* Pequeño efecto hover para que parezca vivo al pasar el ratón */
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-5px)";
+          e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.05)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "none";
         }}
       >
-        <Image 
-          src={imageSrc} 
-          alt={laptop.name} 
-          width={300} 
-          height={200} 
-          style={{ objectFit: "contain", width: "100%", height: "auto" }} 
-        />
-        <h3 style={{ fontSize: "22px", marginTop: "15px", color: "white" }}>
+        {/* IMAGEN DEL EQUIPO */}
+        <div style={{ position: "relative", width: "100%", height: "180px", marginBottom: "25px" }}>
+          <Image
+            src={laptop.image}
+            alt={laptop.name}
+            fill
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+
+        {/* TÍTULO */}
+        <h3 style={{ fontSize: "20px", fontWeight: "bold", color: "#1d1d1f", marginBottom: "8px", letterSpacing: "-0.5px" }}>
           {laptop.name}
         </h3>
-        <p style={{ color: "#888", fontSize: "14px", marginTop: "5px" }}>
-          {laptop.cpu || laptop.specs?.processor}
+
+        {/* SUBTÍTULO (Especificaciones) */}
+        <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px", lineHeight: "1.4" }}>
+          {/* Si tiene CPU, RAM y Storage lo muestra, si no, texto por defecto */}
+          {laptop.cpu ? `${laptop.cpu} / ${laptop.ram} / ${laptop.storage}` : "Máxima configuración técnica"}
         </p>
-        <div style={{ marginTop: "15px", display: "flex", alignItems: "center", gap: "10px" }}>
-          <span style={{ fontSize: "24px", fontWeight: "bold", color: "#25D366" }}>
+
+        {/* PRECIOS */}
+        <div style={{ marginTop: "auto", display: "flex", alignItems: "baseline", justifyContent: "center", gap: "8px" }}>
+          {/* Precio final en Azul Eléctrico */}
+          <span style={{ fontSize: "26px", fontWeight: "900", color: electricBlue, letterSpacing: "-1px" }}>
             {laptop.price}€
           </span>
-          <span style={{ textDecoration: "line-through", color: "#666" }}>
-            {laptop.originalPrice}€
+          {/* Precio original tachado */}
+          <span style={{ fontSize: "16px", color: "#999", textDecoration: "line-through", fontWeight: "500" }}>
+            / {laptop.originalPrice}€
           </span>
         </div>
       </div>
