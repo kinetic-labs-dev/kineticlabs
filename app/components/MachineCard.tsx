@@ -1,3 +1,5 @@
+"use client"; // 👈 LA LÍNEA CLAVE PARA PERMITIR INTERACTIVIDAD
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,7 +22,7 @@ export default function MachineCard({ laptop }: { laptop: Laptop }) {
     <Link href={`/laptop/${laptop.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
       <div
         style={{
-          background: "#EBEBEB", /* El fondo grisáceo que pediste */
+          background: "#EBEBEB", /* El fondo grisáceo */
           borderRadius: "16px",
           padding: "30px 20px",
           textAlign: "center",
@@ -31,7 +33,7 @@ export default function MachineCard({ laptop }: { laptop: Laptop }) {
           flexDirection: "column",
           alignItems: "center"
         }}
-        /* Pequeño efecto hover para que parezca vivo al pasar el ratón */
+        /* Efecto hover interactivo */
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-5px)";
           e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.05)";
@@ -58,7 +60,6 @@ export default function MachineCard({ laptop }: { laptop: Laptop }) {
 
         {/* SUBTÍTULO (Especificaciones) */}
         <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px", lineHeight: "1.4" }}>
-          {/* Si tiene CPU, RAM y Storage lo muestra, si no, texto por defecto */}
           {laptop.cpu ? `${laptop.cpu} / ${laptop.ram} / ${laptop.storage}` : "Máxima configuración técnica"}
         </p>
 
